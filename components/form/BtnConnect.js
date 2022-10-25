@@ -38,6 +38,7 @@ class SectionBtnSignup extends HTMLElement {
 
             if (result.status === "failure") return Toastify(toastifyOptions(result.message, "danger")).showToast();
             localStorage.setItem("bugfixer", JSON.stringify({ id: result.id, token: result.token }));
+            window.location.replace(`${window.location.origin}/bug_fixer/pages/tracker.html`);
         };
 
         btnSubmit.addEventListener("click", handleSubmit);
