@@ -1,3 +1,4 @@
+import { getLocalStorage } from "../../JS/utils/getLocalStorage.js";
 import { API_URL } from "./apiUrl.js";
 
 const URL = API_URL;
@@ -33,7 +34,13 @@ const APIService = {
     async login(name, password) {
         const { data } = await instance.get(`/login/${name}/${password}`);
         const { result } = data;
-        console.log("🚀 ~ file: APIservice.js ~ line 36 ~ login ~ result", result);
+        return result;
+    },
+
+    async getAllList() {
+        const { token } = getLocalStorage();
+        const { data } = await instance.get(`/list/${token}/0`);
+        const { result } = data;
         return result;
     },
 };
