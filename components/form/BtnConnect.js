@@ -1,3 +1,4 @@
+import navigate from "../../JS/utils/navigate.js";
 import { toastifyOptions } from "../../JS/utils/toastifyOptions.js";
 import { inputValidation } from "../../JS/validation/inputValidation.js";
 import { APIService } from "../../services/request/APIservice.js";
@@ -38,7 +39,10 @@ class SectionBtnSignup extends HTMLElement {
 
             if (result.status === "failure") return Toastify(toastifyOptions(result.message, "danger")).showToast();
             localStorage.setItem("bugfixer", JSON.stringify({ id: result.id, token: result.token }));
-            window.location.replace(`${window.location.origin}/bug_fixer/pages/tracker.html`);
+            Toastify(toastifyOptions(`Bienvenue ${data.userName}`, "success")).showToast();
+            setTimeout(() => {
+                navigate("/pages/tracker.html");
+            }, 2000);
         };
 
         btnSubmit.addEventListener("click", handleSubmit);
