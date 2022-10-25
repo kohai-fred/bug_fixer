@@ -41,7 +41,7 @@ class SectionBtnSignup extends HTMLElement {
             localStorage.setItem("bugfixer", JSON.stringify({ id: result.id, token: result.token }));
             Toastify(toastifyOptions(`Bienvenue ${data.userName}`, "success")).showToast();
             setTimeout(() => {
-                navigate("/pages/tracker.html");
+                navigate("/pages/listing.html");
             }, 2000);
         };
 

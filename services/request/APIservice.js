@@ -2,6 +2,7 @@ import { getLocalStorage } from "../../JS/utils/getLocalStorage.js";
 import { API_URL } from "./apiUrl.js";
 
 const URL = API_URL;
+const { id, token } = getLocalStorage();
 
 const instance = axios.create({
     baseURL: URL,
@@ -38,8 +39,13 @@ const APIService = {
     },
 
     async getAllList() {
-        const { token } = getLocalStorage();
         const { data } = await instance.get(`/list/${token}/0`);
+        const { result } = data;
+        return result;
+    },
+
+    async getAllUsers() {
+        const { data } = await instance.get(`/users/${token}`);
         const { result } = data;
         return result;
     },
