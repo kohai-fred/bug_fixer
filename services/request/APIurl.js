@@ -1,1 +1,1 @@
-export const API_URL = "http://greenvelvet.alwaysdata.net/bugTracker/api";
+export const API_URL = "https://greenvelvet.alwaysdata.net/bugTracker/api";

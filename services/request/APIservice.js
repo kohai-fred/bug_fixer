@@ -1,7 +1,7 @@
 import { getLocalStorage } from "../../JS/utils/getLocalStorage.js";
-// import { API_URL } from "./apiUrl.js";
+import { API_URL } from "./APIurl.js";
 
-const URL = "http://greenvelvet.alwaysdata.net/bugTracker/api";
+const URL = API_URL;
 const { id, token } = getLocalStorage();
 
 const instance = axios.create({
