@@ -7,47 +7,99 @@ const { id, token } = getLocalStorage();
 const instance = axios.create({
     baseURL: URL,
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
     },
-});
-
-instance.interceptors.request.use((config) => {
-    const local = window.localStorage.getItem("bugfixer");
-    if (local?.token) {
-        config.headers.Authorization = `Bearer ${local.token}`;
-    }
-    return config;
 });
 
 const APIService = {
     async getPing() {
-        const { data } = await instance.get("/ping");
-        const { ready } = data.result;
-        return ready;
+        try {
+            const { data } = await instance.get("/ping");
+            const { ready } = data.result;
+            return ready;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
     },
 
     async signup(name, password) {
-        const { data } = await instance.get(`/signup/${name}/${password}`);
-        const { result } = data;
-        return result;
+        try {
+            const { data } = await instance.get(`/signup/${name}/${password}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
     },
 
     async login(name, password) {
-        const { data } = await instance.get(`/login/${name}/${password}`);
-        const { result } = data;
-        return result;
+        try {
+            const { data } = await instance.get(`/login/${name}/${password}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
     },
 
-    async getAllList() {
-        const { data } = await instance.get(`/list/${token}/0`);
-        const { result } = data;
-        return result;
+    async logout() {
+        try {
+            const { data } = await instance.get(`/logout/${token}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
+    },
+
+    async getBugs(uniqueUser = false) {
+        try {
+            const { data } = await instance.get(`/list/${token}/${uniqueUser ? id : "0"}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
     },
 
     async getAllUsers() {
-        const { data } = await instance.get(`/users/${token}`);
-        const { result } = data;
-        return result;
+        try {
+            const { data } = await instance.get(`/users/${token}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
+    },
+
+    async postNewBug(newBug) {
+        try {
+            const { data } = await instance.post(`/add/${token}/${id}`, newBug);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
+    },
+
+    async changeBugStatus({ bugId, state }) {
+        try {
+            const { data } = await instance.get(`/state/${token}/${bugId}/${state}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
+    },
+
+    async deleteBug(bugId) {
+        try {
+            const { data } = await instance.get(`/delete/${token}/${bugId}`);
+            const { result } = data;
+            return result;
+        } catch (error) {
+            return { status: error.response.status, message: error.message };
+        }
     },
 };
 

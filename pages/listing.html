@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +12,6 @@
             rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
             crossorigin="anonymous"
-            defer
         />
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -26,19 +25,35 @@
             crossorigin="anonymous"
             defer
         ></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
-        <script src="../JS/pages/listing.js" type="module" defer></script>
+
         <link rel="stylesheet" href="../style.css" />
     </head>
     <body>
+        <header>
+            <header-navbar page="listing"></header-navbar>
+        </header>
         <main class="container-fluid">
             <h1 class="text-center">Listing</h1>
 
+            <!-- Card container -->
             <div
                 id="js-card-container"
                 class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-6 g-4"
             ></div>
+
+            <!-- Modal -->
+            <modal-delete-bug></modal-delete-bug>
+            <modal-new-bug></modal-new-bug>
+            <modal-logout></modal-logout>
         </main>
+
+        <!-- My script-->
+        <script src="../JS/pages/listing.js" type="module"></script>
+        <script src="../components/navbar/Navbar.js" type="module"></script>
+        <script src="../components/modal/ModalDeleteBug.js" type="module"></script>
+        <script src="../components/modal/ModalNewBug.js" type="module"></script>
+        <script src="../components/modal/ModalLogout.js" type="module"></script>
     </body>
 </html>

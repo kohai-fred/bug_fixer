@@ -5,6 +5,9 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    min-height: 100vh;
+}
 
 .max-width-500 {
     max-width: 500px;

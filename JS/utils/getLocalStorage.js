@@ -1,4 +1,8 @@
 export const getLocalStorage = () => {
-    const { id, token } = JSON.parse(window.localStorage.getItem("bugfixer"));
-    return { id, token };
+    try {
+        const localStorage = JSON.parse(window.localStorage.getItem("bugfixer"));
+        return localStorage || {};
+    } catch (error) {
+        return error;
+    }
 };

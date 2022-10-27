@@ -38,11 +38,13 @@ class SectionBtnSignup extends HTMLElement {
             }
 
             if (result.status === "failure") return Toastify(toastifyOptions(result.message, "danger")).showToast();
-            localStorage.setItem("bugfixer", JSON.stringify({ id: result.id, token: result.token }));
-            Toastify(toastifyOptions(`Bienvenue ${data.userName}`, "success")).showToast();
+            localStorage.setItem(
+                "bugfixer",
+                JSON.stringify({ id: result.id, token: result.token, first_connect: true })
+            );
             setTimeout(() => {
                 navigate("/pages/listing.html");
-            }, 2000);
+            }, 10);
         };
 
         btnSubmit.addEventListener("click", handleSubmit);
