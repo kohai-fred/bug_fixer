@@ -12,6 +12,7 @@ class ModalNewBug extends HTMLElement {
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content bg-dark">
 						<div class="modal-body">
+							<h2 class="text-light">Enregistrer un nouveau bug</h2>
 							<form
 								class="container-sm border border-primary rounded p-4 mx-auto needs-validation max-width-500"
 							>
@@ -72,8 +73,6 @@ class ModalNewBug extends HTMLElement {
             const data = {
                 title,
                 description,
-                // title: "New bug 5",
-                // description: "Un super bug bien chiant",
             };
 
             const { status } = await APIService.postNewBug(data);
