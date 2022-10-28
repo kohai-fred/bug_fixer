@@ -7,6 +7,10 @@ body {
 }
 body {
     min-height: 100vh;
+    background-color: #dee2e6;
+}
+main {
+    padding-bottom: 4em;
 }
 
 .max-width-500 {

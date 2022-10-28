@@ -9,8 +9,9 @@ class FormConnect extends HTMLElement {
         super();
         this.page = this.getAttribute("page");
         this.innerHTML = `
+        <article class="p-4" style="width:100vw">
         <form
-        class="container-sm border border-primary rounded p-4 mx-auto needs-validation max-width-500"
+        class="container-sm border border-primary rounded p-4 mx-auto needs-validation max-width-500 w-100 bg-light"
         novalidate
         >
             <div class="mb-3">
@@ -56,6 +57,7 @@ class FormConnect extends HTMLElement {
             <div id="slot"></div>
 
         </form>
+        </article>
         `;
     }
 

@@ -11,7 +11,7 @@ export default function cardTemplate(data) {
     const hours = getHours(data.timestamp);
 
     card.innerHTML = `
-		<div class="card h-100">
+		<div class="card h-100 border-info">
 			<div class="card-header">
 				<h5 class="card-title text-truncate">${cleanStr(data.title) || "Untitled"}</h5>
 				<h6 class="card-subtitle mb-2 text-muted text-truncate d-flex justify-content-between align-items-center text-break">

@@ -14,14 +14,14 @@ class Navbar extends HTMLElement {
         this.btn = "Ajouter";
 
         this.innerHTML = `
-			<nav class="navbar navbar-expand-md sticky-top bg-light">
+			<nav class="navbar navbar-expand-md sticky-top shadow-lg bg-dark bg-gradient">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/bug_fixer/pages/listing.html"><i class="bi bi-bug-fill"></i></a>
+					<a class="navbar-brand" href="/bug_fixer/pages/listing.html"><i class="bi bi-bug-fill text-light"></i></a>
 					<div class="d-flex">
 						<p id="resume-desktop" class="text-muted text-center mb-0 d-none d-md-inline" style="font-size: 0.7em"></p>
 					</div>
 					<button
-						class="navbar-toggler"
+						class="navbar-toggler bg-light"
 						type="button"
 						data-bs-toggle="collapse"
 						data-bs-target="#navbarNavAltMarkup"
@@ -34,13 +34,13 @@ class Navbar extends HTMLElement {
 					<div class="d-flex collapse navbar-collapse flex-grow-0">
 						<div class="collapse navbar-collapse justify-content-end flex-grow-0" id="navbarNavAltMarkup">
 							<div class="navbar-nav align-items-end ">
-								<p id="resume" class="nav-link d-flex align-items-center mb-0 mt-4 d-md-none" style="font-size: 0.7em"></p>
-								<a class="nav-link d-flex align-items-center" data-page="listing"  href="./listing.html">
+								<p id="resume" class="nav-link text-light d-flex align-items-center mb-0 mt-4 d-md-none" style="font-size: 0.7em"></p>
+								<a class="nav-link d-flex align-items-center text-light" data-page="listing"  href="./listing.html">
 									Liste complète
 								</a>
-								<a class="nav-link d-flex align-items-center" data-page="mybug" href="./mybug.html">À traiter</a>
-								<a class="nav-link d-flex align-items-center" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#addNewBug" >Ajouter un bug</a>
-								<a class="nav-link d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalLogout" style="cursor: pointer"><i class="bi bi-power text-danger"></i></a>
+								<a class="nav-link d-flex align-items-center text-light" data-page="mybug" href="./mybug.html">À traiter</a>
+								<a class="nav-link d-flex align-items-center text-light" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#addNewBug" >Ajouter un bug</a>
+								<a class="nav-link d-flex align-items-center text-light" data-bs-toggle="modal" data-bs-target="#modalLogout" style="cursor: pointer"><i class="bi bi-power text-danger"></i></a>
 							</div>
 						</div>
 					</div>
