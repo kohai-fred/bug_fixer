@@ -11,7 +11,6 @@ export async function onChangeBugStatus(list, target) {
     };
     const indexBugInList = list.findIndex((bug) => bug.id === data.bugId);
     const { status, message } = await APIService.changeBugStatus(data);
-    // console.log("🚀 ~ file: listing.js ~ line 37 ~ onChangeBugStatus ~ status", { status, message });
     if (status === "done") {
         Toastify(toastifyOptions(`Le bug est "${optionsArrayData[data.state].toLowerCase()}"`, "success")).showToast();
         list[indexBugInList].state = data.state;
@@ -21,5 +20,4 @@ export async function onChangeBugStatus(list, target) {
     } else {
         navigate("/pages/login.html");
     }
-    // target.removeEventListener("change", onChangeBugStatus);
 }
