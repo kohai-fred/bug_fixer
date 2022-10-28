@@ -23,7 +23,7 @@ class FormConnect extends HTMLElement {
                     required
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    data-bs-title="Votre pseudo doit comport au moins 5 lettres."
+                    data-bs-title="Votre pseudo doit comporter au moins 5 lettres."
                 />
                 <div class="invalid-feedback fw-lighter" style="font-size: '8px'">
                     Votre pseudo doit comporter au moins 5 lettres.

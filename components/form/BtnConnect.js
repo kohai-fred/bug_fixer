@@ -9,7 +9,7 @@ class SectionBtnSignup extends HTMLElement {
         this.page = "signup";
         this.innerHTML = `
 			<section class="d-flex flex-column align-items-center">
-				<button id="submit" type="submit" class="btn btn-primary my-4 w-100">Submit</button>
+				<button id="submit" type="submit" class="btn btn-primary my-4 w-100">Créer un compte</button>
 				<a href="./pages/login.html">Se connecter</a>
 			</section>`;
     }
@@ -21,7 +21,8 @@ class SectionBtnSignup extends HTMLElement {
         const getData = () => {
             const inputsValue = {};
             inputsElem.forEach((input) => {
-                inputsValue[input.id] = inputValidation(input, inputsElem[1]);
+                const inputPassword = inputsElem[1];
+                inputsValue[input.id] = inputValidation(input, { inputPassword });
             });
             return Object.values(inputsValue).filter((value) => !value).length ? false : inputsValue;
         };
@@ -57,7 +58,7 @@ class SectionBtnLogin extends SectionBtnSignup {
         this.page = "login";
         this.innerHTML = `
 			<section class="d-flex flex-column align-items-center">
-				<button id="submit" type="submit" class="btn btn-primary my-4 w-100">Submit</button>
+				<button id="submit" type="submit" class="btn btn-primary my-4 w-100">Se connecter</button>
 				<a href="/bug_fixer">Créer un compte</a>
 			</section>`;
     }
